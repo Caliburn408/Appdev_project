@@ -268,7 +268,7 @@ def update_listing(listing_id):
 
         return render_template('updateListing.html', form=update_listing_form)
 
-@app.route('/deleteUser/<int:user_id>', methods=['POST'])
+@app.route('/deleteUser/<int:user_id>', methods=['GET', 'POST'])
 def delete_user(user_id):
     users_dict = {}
     db = shelve.open('user', 'w')
@@ -281,7 +281,7 @@ def delete_user(user_id):
 
     return redirect(url_for('retrieve_users'))
 
-@app.route('/deleteListing/<int:listing_id>', methods=['POST'])
+@app.route('/deleteListing/<int:listing_id>', methods=['GET', 'POST'])
 def delete_listing(listing_id):
     listing_dict = {}
     db = shelve.open('listing', 'w')
@@ -294,7 +294,7 @@ def delete_listing(listing_id):
 
     return redirect(url_for('retrieve_listing'))
 
-@app.route("/search", methods=["POST"])
+@app.route("/search", methods=["GET", "POST"])
 def search():
     listing_dict = {}
     db = shelve.open('listing', 'r')
