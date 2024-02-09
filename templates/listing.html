@@ -1,0 +1,19 @@
+{% extends "yourbase.html" %}
+{% block title %}GrabGrub - Home{% endblock %}
+
+{% block content %}
+
+<div class="listing-details">
+ <img src="{{ url_for('static', filename='uploads/' + listing.get_filename()) }}" alt="Listing {{ listing.get_listing_id() }}">
+ <h1>{{ listing.get_title() }}</h1>
+ <p>Brand: {{ listing.get_brand() }}</p>
+ <p>Category: {{ listing.get_category() }}</p>
+ <p>Expiry Date: {{ listing.get_expiry_date() }}</p>
+ <p>Location: {{ listing.get_location() }}</p>
+ <p>Description: {{ listing.get_description() }}</p>
+ <form action="/dib/{{ listing.get_listing_id() }}" method="GET">
+    <input type="submit" value="Dib">
+ </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "base.html" %} 
+{% block title %}Cart{% endblock %} 
+ 
+{% block content %} 
+{% from "includes/_formHelper.html" import render_field %} 
+ 
+<div class="  container" style="margin-top: 20px"> 
+    <h3>Shopping Cart<img style="height:30px;aspect-ratio:1.5/1" src="../../static/uploads/shoppingcart.png"></h3> 
+ 
+    <div class = "row" > 
+ 
+        <!--item--> 
+        <div class=" firstdiv col-md-8 col-sm-12 col-xs-6"> 
+            {% for i in storage %} 
+                {% if storage[i].get_name() in cart %} 
+                    <div class="dididi container position-relative" style="height:200px;margin-top:30px;background:rgba(241, 133, 48 ,0.6);border-radius:10px;"> 
+                            <div class=" changes "> 
+                                <div class="position-absolute end-0 right right2"> 
+                                    <h6 style="position:absolute"> 
+                                        {% if storage[i].get_name() not in change_cart %} 
+                                        quantity : {{cart[storage[i].get_name()]}} 
+                                        {% else %} 
+                                        quantity : <strike style="color:red">{{change_cart[storage[i].get_name()][0]}}</strike> {{change_cart[storage[i].get_name()][1]}} 
+                                        {% endif %} 
+                                    </h6> 
+                                    <form method="POST" action="/change/{{storage[i].get_name()}}"> 
+                                        <div style="width:120px"> 
+                                            {{ render_field(form.changes, class="form-control", min = 1, max = 99) }} 
+                                        </div> 
+                                    </form> 
+                                </div> 
+                            </div> 
+ 
+                        <div class="row"> 
+                            <div style="position:absolute;width:100%;"> 
+                                <h1 style="text-align:right;margin-right:30px;margin-top:10px"> 
+                                    <a style="text-decoration:none" href="/delete/{{storage[i].get_name()}}" >X</a> 
+                                </h1> 
+                            </div> 
+                            <div class="col-md-5 col-sm-6 col-xs-6"> 
+                                <a href="/option/{{storage[i].get_category()}}/{{storage[i].get_name()}}"> 
+                                    <img class="img" src="{{url_for('static', filename=storage[i].get_product_image())}}"  align="middle"  /> 
+                                </a> 
+                                <div style="margin-left:230px"> 
+                                    <h2 style="margin-top:20px"> 
+                                        {{storage[i].get_name()}} 
+                                    </h2> 
+                                    <h3 style="margin-left:25px"> 
+                                        ${{storage[i].get_price()}} 
+                                    </h3> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                {%endif%} 
+            {%endfor%} 
+        </div> 
+ 
+        <!--cost--> 
+        <div class="  col-md-4 col-sm-12 col-xs-6"> 
+            <div class=" seconddiv "> 
+                <h3> 
+                    Order Summary 
+                </h3> 
+                <h4> 
+                    {{length}} items 
+                </h4> 
+                <div style="margin-top:30px"> 
+                    {%for a in storage%} 
+                    {% if storage[a].get_name() in cart %} 
+                        <h6 style="position:absolute"> 
+                            ${{storage[a].get_price()}}<span style="font-size:10px"> x {{cart[storage[a].get_name()]}}</span> 
+                        </h6> 
+                        <h6 style="text-align:right"> 
+                            ${{price[storage[a].get_name()]}} 
+                        </h6> 
+                    {%endif%}
+                    {% endfor %} 
+                    <hr> 
+
+                    <h3 style="position:absolute"> 
+                        Total 
+                    </h3> 
+                    <h3 style="text-align:right"> 
+                        $0
+                    </h3> 
+                    <div class="row" style="margin-top:30px"> 
+                    {% if length == 0%} 
+                        <a class="btn btn-secondary disabled" > 
+                    {% else%} 
+                        <a class="btn btn-secondary" href="/dib"> 
+                    {% endif %} 
+                            <h4 style="position:absolute"> 
+                                Dib 
+                            </h4> 
+                            <h4 style="text-align:right"> 
+                                → 
+                            </h4> 
+ 
+                        </a> 
+                    </a> 
+                </div> 
+            </div> 
+ 
+ 
+        </div> 
+    </div> 
+</div> 
+ 
+ 
+<style> 
+    .dididi{ 
+        transition:0.2s 
+    } 
+    .dididi:hover{ 
+        box-shadow:2px 2px 5px rgba(0,0,0,0.6) 
+    } 
+    .changes{ 
+        width:100% 
+    } 
+    .right2{ 
+        margin-right:100px; 
+        margin-top:120px 
+    } 
+    .img{ 
+        height:150px; 
+        margin-left:10px; 
+        width:180px; 
+        position:absolute; 
+        margin-top:20px 
+    } 
+ 
+    .seconddiv{ 
+        background:rgba(169, 169, 169 ,0.6); 
+       padding:15px 15px 0 15px 
+ 
+    } 
+    @media only screen and (max-width: 768px) { 
+        .right{ 
+            margin-right:30px 
+        } 
+        .seconddiv{ 
+            margin-top:40px 
+        } 
+    } 
+ 
+ 
+</style> 
+ 
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "yourbase.html" %}
+{% block title %}GrabGrub - Home{% endblock %}
+
+{% block content %}
+
+<form action="/search" method="POST" id="searchForm">
+  <input id="search" type="text" name="query" placeholder="Start typing to search..." >
+  <button type="submit">Search</button>
+</form>
+
+<h1 id="cattitle">What would you like to find?</h1>
+<a href="/grains" class="category-card"><img src="../static/uploads/grains.png" alt="Category Icon">Grains</a>
+<a href="/cannedfoods" class="category-card"><img src="../static/uploads/cannedfoods.png" alt="Category Icon">Canned Foods</a>
+<a href="/dairy" class="category-card"><img src="../static/uploads/dairy.png" alt="Category Icon">Dairy</a>
+<a href="/fruits&vegetables" class="category-card"><img src="../static/uploads/fruits&vegetables.png" alt="Category Icon">Fruits & Vegetables</a>
+<a href="/beverages" class="category-card"><img src="../static/uploads/beverages.png" alt="Category Icon">Beverages</a>
+<h1 id="uptitle">Recently Uploaded</h1>
+<div class="listings-container">
+{% for listing in listing_list %}
+<a href="{{ url_for('listing', listing_id=listing.get_listing_id()) }}">
+  <div class="listing-card">
+    <div class="listing-card-img-container">
+      <img src="{{ url_for('static', filename='uploads/' + listing.get_filename()) }}" alt="Listing {{ listing.get_listing_id() }}">
+    </div>
+    <p>{{ listing.get_title() }}</p>
+    <p>Expiry: {{ listing.get_expiry_date() }}</p>
+    <!-- Add more fields as needed -->
+    <p>{{ listing.get_description() }}</p>
+    <form action="{{ url_for('dib', id=listing.get_listing_id()) }}" method="POST">
+      <input type="submit" value="Dib"> </input>
+    </form>
+  </div>
+</a>
+{% endfor %}
+</div>
+{% endblock %}

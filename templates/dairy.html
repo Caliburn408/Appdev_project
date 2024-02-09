@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}GrabGrub - Dairy Listings{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Dairy</h1>
+<div class="listings-container">
+    {% for listing in listing_list %}
+    <a href="{{ url_for('listing', listing_id=listing.get_listing_id()) }}" class="listingcardtext">
+        <div class="listing-card">
+          <div class="listing-card-img-container">
+            <img src="{{ url_for('static', filename='uploads/' + listing.get_filename()) }}" alt="Listing {{ listing.get_listing_id() }}">
+          </div>
+          <p>{{ listing.get_title() }}</p>
+          <p>Expiry: {{ listing.get_expiry_date() }}</p>
+          <!-- Add more fields as needed -->
+          <p>{{ listing.get_description() }}</p>
+            <form action="{{ url_for('dib', id=listing.get_listing_id()) }}" method="post">
+                <input type="submit" value="Dib"></input>
+            </form>
+          </div>
+        </a>
+    {% endfor %}
+</div>    
+{% if listing_list == [] %}
+<p>No listings listed under Dairy category</p>
+{% endif %}
+{% endblock %}
