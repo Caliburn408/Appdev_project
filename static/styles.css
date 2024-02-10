@@ -12252,7 +12252,7 @@ body {
 }
 
 #searchRadius:hover, #search:hover {
-  background-color: rgb(229, 248, 229);
+  background-color: #e3ffb3;
 }
 
 /* Center the search button */
