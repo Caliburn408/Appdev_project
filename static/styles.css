@@ -12116,13 +12116,13 @@ li {
   position: relative; 
   text-align: center; ; 
   font-weight: bold; 
-  font-family: sans-serif; 
+  font-family: sans-serif;
  }
 
 /* Scale images to fit */
 .listing-card img {
  width: 100%;
- height: 50%; /* Adjust as needed */
+ height: 100%; /* Adjust as needed */
  object-fit: cover;
  border-radius: 5px; /* Adjust as needed */
  transition: all .8s ease-in-out; 
@@ -12188,7 +12188,8 @@ li {
   border: 2px solid #e3ffb3; /* Black box outline */
   background-color: #e3ffb3; 
   border-radius: 10px; /* Adjust as needed */
-  transition: all .3s ease-in-out; 
+  transition: all .3s ease-in-out;
+  height: 500px;
 }
 
 .listings-container a {
@@ -12303,3 +12304,80 @@ th {
   width: 100%;
   height: 100%;
 }
+
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7; /* Light grey background */
+}
+
+/* Listing Details Container */
+.listing-details {
+  max-width:  600px; /* Limit the width of the container */
+  margin:  2em auto; /* Center the container horizontally with some top margin */
+  padding:  1em; /* Padding around the container */
+  background-color: #ffffff; /* White background for the container */
+  box-shadow:  0  4px  6px rgba(0,  0,  0,  0.1); /* Subtle shadow for depth */
+  border-radius:  10px; /* Rounded corners */
+}
+
+/* Image within the Listing Details */
+.listing-details img {
+  width:  100%; /* Full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove default image styling */
+  margin-bottom:  1em; /* Space between image and text */
+}
+
+/* Heading within the Listing Details */
+.listing-details h1 {
+  font-size:  2em; /* Larger font size for the title */
+  color: #333333; /* Dark grey text color */
+  text-align: center; /* Centered title */
+  margin-bottom:  0.5em; /* Space underneath the title */
+}
+
+/* Paragraphs within the Listing Details */
+.listing-details p {
+  font-size:  1em; /* Normal font size for the text */
+  color: #666666; /* Grey text color */
+  line-height:  1.5; /* Readable line height */
+  margin-bottom:  0.5em; /* Space between paragraphs */
+}
+
+/* Form and Button within the Listing Details */
+.listing-details form {
+  text-align: center; /* Center the button */
+}
+
+.listing-details input[type="submit"] {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding:  0.5em  1em; /* Padding around the text */
+  border: none; /* No border */
+  cursor: pointer; /* Hand cursor on hover */
+  font-size:  1em; /* Same font size as text */
+  transition: background-color  0.3s ease; /* Smooth transition for hover */
+}
+
+.listing-details input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+
+ .listing-card-dib input[type="submit"] {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding:  0.5em  1em; /* Padding around the text */
+  cursor: pointer; /* Hand cursor on hover */
+  font-size:  0.9rem; /* Same font size as text */
+  transition: background-color  0.3s ease; /* Smooth transition for hover */
+}
+
+.listing-card-dib input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+
+
+
+
+
+

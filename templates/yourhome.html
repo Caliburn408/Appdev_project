@@ -26,9 +26,11 @@
     <p>Expiry: {{ listing.get_expiry_date() }}</p>
     <!-- Add more fields as needed -->
     <p>{{ listing.get_description() }}</p>
+    <div class="listing-card-dib">
     <form action="{{ url_for('dib', id=listing.get_listing_id()) }}" method="POST">
-      <input type="submit" value="Dib"> </input>
+      <input type="submit" value="Dib">
     </form>
+      </div>
   </div>
 </a>
 {% endfor %}
