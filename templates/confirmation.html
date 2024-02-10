@@ -11,8 +11,8 @@
  <p>Expiry Date: {{ listing.get_expiry_date() }}</p>
  <p>Location: {{ listing.get_location() }}</p>
  <p>Description: {{ listing.get_description() }}</p>
- <form action="/confirm/{{ listing.get_listing_id() }}" method="GET">
-    <input type="submit" value="Dib">
+ <form action="/dib/{{ listing.get_listing_id() }}" method="GET">
+    <input type="submit" value="Confirm">
  </form>
 </div>
 
