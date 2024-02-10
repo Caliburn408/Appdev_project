@@ -1,3 +1,4 @@
+import dbm
 import shelve
 
 
