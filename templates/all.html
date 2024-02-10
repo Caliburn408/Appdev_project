@@ -6,8 +6,9 @@
 <div class="listings-container">
   {% for listing in listing_list %}
   <a href="{{ url_for('listing', listing_id=listing.get_listing_id()) }}" class="listingcardtext">
-      <div class="listing-card">
-        <img src="{{ url_for('static', filename='uploads/' + listing.get_filename()) }}" alt="Listing {{ listing.get_listing_id() }}">
+    <div class="listing-card-img-container">
+      <img src="{{ url_for('static', filename='uploads/' + listing.get_filename()) }}" alt="Listing {{ listing.get_listing_id() }}">
+    </div>
         <p>{{ listing.get_title() }}</p>
         <p>Expiry: {{ listing.get_expiry_date() }}</p>
         <!-- Add more fields as needed -->
