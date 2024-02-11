@@ -12265,7 +12265,7 @@ body {
 }
 
 #searchRadius:hover, #search:hover {
-  background-color: rgb(229, 248, 229);
+  background-color: #e3ffb3;
 }
 
 /* Center the search button */
@@ -12316,6 +12316,7 @@ th {
   width: 100%;
   height: 100%;
 }
+
 
 /* Base Styles */
 body {
@@ -12388,7 +12389,8 @@ body {
 .listing-card-dib input[type="submit"]:hover {
   background-color: #45a049; /* Darker green on hover */
 
-/*test*/
+
+
 
 
 

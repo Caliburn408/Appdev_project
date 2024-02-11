@@ -545,6 +545,20 @@ def listing(listing_id):
 
     return render_template('listing.html', listing=listing)
 
+@app.route('/confirm/<int:listing_id>')
+def confirmation(listing_id):
+    listing_dict = {}
+    db = shelve.open('listing', 'r')
+    try:
+        listing_dict = db['listing']
+    except:
+        pass
+    db.close()
+
+    listing = listing_dict.get(listing_id)
+
+    return render_template('confirmation.html', listing=listing)
+
 
 @app.route('/confirm/<int:listing_id>')
 def confirmation(listing_id):
