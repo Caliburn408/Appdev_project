@@ -12122,7 +12122,7 @@ li {
 /* Scale images to fit */
 .listing-card img {
  width: 100%;
- height: 100%; /* Adjust as needed */
+ height: auto; /* Adjust as needed */
  object-fit: cover;
  border-radius: 5px; /* Adjust as needed */
  transition: all .8s ease-in-out; 
@@ -12144,6 +12144,18 @@ li {
   border: 2px solid black; /* Black box outline */
 }
 
+.listing-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.listing-expiry {
+  font-size: 0.9rem;
+}
+
+.listing-description {
+  font-size: 0.9rem;
+}
 
 /* Container holding the cards */
 .category-container {
@@ -12189,7 +12201,7 @@ li {
   background-color: #e3ffb3; 
   border-radius: 10px; /* Adjust as needed */
   transition: all .3s ease-in-out;
-  height: 500px;
+  height: 600px;
 }
 
 .listings-container a {
